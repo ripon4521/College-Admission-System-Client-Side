@@ -1,4 +1,5 @@
 import ApplicationSummary from "../ApplicationSuumary/ApplicationSummary";
+import FeaturedCollege from "../FeaturedCollege/FeaturedCollege";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navabr";
 import Banner from "./Banner/Banner";
@@ -14,6 +15,7 @@ const Home = () => {
  </div>
    </div>
    <ApplicationSummary/>
+   <FeaturedCollege/>
        <Footer/>
         </div>
     );
