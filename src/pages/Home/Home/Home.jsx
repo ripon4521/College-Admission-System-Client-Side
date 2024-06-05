@@ -10,7 +10,7 @@ import Testimonials from "../Testimonials/Testimonials";
 import Banner from "./Banner/Banner";
 
 
-const Home = () => {
+const Home = ({ searchQuery } ) => {
     return (
         <div>
    <div className="bg-[#050038]">
@@ -20,7 +20,7 @@ const Home = () => {
  </div>
    </div>
    <ApplicationSummary/>
-   <FeaturedCollege/>
+   <FeaturedCollege searchQuery ={ searchQuery }  />
    <Gallery/>
    <HowItWorks/>
    <Testimonials/>

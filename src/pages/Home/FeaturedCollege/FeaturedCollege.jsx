@@ -1,11 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
-const FeaturedCollege = () => {
+const FeaturedCollege = ({ searchQuery }) => {
   const [collegeDetails, setCollegeDetails] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  console.log(searchQuery )
+  const location = useLocation();
+  const { search } = location;
+  const query = new URLSearchParams(search).get("search");
+  console.log(query)
+
 
   useEffect(() => {
     const fetchCollegeDetails = async () => {
@@ -36,7 +42,7 @@ const FeaturedCollege = () => {
       </h1>
       <div className="flex justify-center flex-wrap mt-20 gap-10">
         {
-          collegeDetails.map(college => (
+          collegeDetails?.map(college => (
             <div key={college._id} className="relative flex w-80 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
               <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
                 <img src={college.images} alt={`${college.name}`} />

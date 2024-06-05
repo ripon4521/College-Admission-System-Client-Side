@@ -1,40 +1,47 @@
 import { useState } from "react";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import useCollege from "../../../Hooks/useCollege";
+import { axiosPublic } from "../../../Hooks/usePublic";
+
 
 const Testimonials = () => {
+        const [ allCollegeData] = useCollege();
+        // console.log(allCollegeData)
 
-
-    const [formData, setFormData] = useState({
-        collegeName: '',
-        feedback: '',
-        rating: 0,
-      });
-    
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-          ...formData,
-          [name]: value,
-        });
-      };
-    
-      const handleRating = (rate) => {
-        setFormData({
-          ...formData,
-          rating: rate,
-        });
-      };
-    
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        if (formData == '') {
-            return <p>Please fill the all input fileds</p>
-        }
-        console.log(formData)
-        // Here you can add the logic to send the data to your backend or perform other actions.
-      }    
+        const [formData, setFormData] = useState({
+       
+            feedback: '',
+            rating: 0,
+            collegeName: '', // Added state for select input
+          });
+        
+          const handleChange = (e) => {
+            const { name, value } = e.target;
+            setFormData({
+              ...formData,
+              [name]: value,
+            });
+          };
+        
+          const handleRating = (rate) => {
+            setFormData({
+              ...formData,
+              rating: rate,
+            });
+          };
+        
+          const handleSubmit = (e) => {
+            e.preventDefault();
+            axiosPublic.post('/testimonials', formData)
+            .then(res=> toast.success("Your feedback successfully Submited")).catch(err => console.log(err))
+          
+         
+          };   
     return (
         <div>
+            <ToastContainer />
             {/* Section Testimonial */}
 <section className="bg-[#f2f2f7]">
   {/* Container */}
@@ -104,19 +111,30 @@ const Testimonials = () => {
     </h2>
 
     <form className="flex flex-col" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="collegeName"
-        value={formData.collegeName}
+    <select
+        name="shotFirst"
+        value={formData.shotFirst}
         onChange={handleChange}
-        className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-        placeholder="Enter College Name"
-      />
+        className="select select-bordered w-full  mt-4"
+      >
+        <option disabled selected value="">
+         Select College Name 
+        </option>
+        {
+            allCollegeData.map((college) => (
+              <option key={college.id} value={college.name}>
+                {college.name}
+              </option>
+            ))
+        }
+       
+      </select>
+
       <textarea
         name="feedback"
         value={formData.feedback}
         onChange={handleChange}
-        className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+        className="bg-gray-100 mt-3 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
         placeholder="Enter Your Feedback here"
       />
       <div className="rating flex items-center">
@@ -131,6 +149,7 @@ const Testimonials = () => {
           />
         ))}
       </div>
+   
 
       <button
         type="submit"
@@ -141,13 +160,13 @@ const Testimonials = () => {
     </form>
 
     <div className="flex justify-center mt-4">
-      <a href="#" className="text-sm text-gray-600 hover:underline"
-        >Privacy Policy</a >
+      {/* <a href="#" className="text-sm text-gray-600 hover:underline"
+        >Privacy Policy</a > */}
     </div>
   </div>
 </div>
 
-    <a href="#" className="flex justify-center font-bold text-black">Check all reviews</a>
+    {/* <a href="#" className="flex justify-center font-bold text-black">Check all reviews</a> */}
   </div>
 </section>
 
