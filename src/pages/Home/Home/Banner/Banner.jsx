@@ -21,13 +21,19 @@ const Banner = () => {
               
             
               </div>
-              <p className='text-white font-sans ml-6 drop-shadow-md'>We offer new-age solutions to schools through technology and optimum utilization of the school's assets -
+              <p className='text-gray-400 font-sans ml-6 drop-shadow-md'>We offer new-age solutions to schools through technology and optimum utilization of the school's assets -
 its Alumni, to drive student & school success.</p>
 <button className='text-white bg-lime-500  rounded-md px-4 py-2 font-sans ml-6  my-4'>Get Admission</button>
 
-<p><AiOutlineNotification/></p>
-
+<div className='flex flex-wrap mb-10 md:mb-0   mt-20 ml-4 items-center gap-5 text-gray-400 font-sans'>
+<p className='text-5xl bg-lime-500 text-white px-3 py-2 rounded-r-3xl w-20 '><AiOutlineNotification/></p>
+<p>NEET Toppers List </p>
+<p>NEET Result Link </p>
+<p>NEET UG Cutoff </p>
+</div>
             </div>
+            
+
 
             <div className="hidden px-4 lg:block "></div>
             <div className="w-full px-4 ">

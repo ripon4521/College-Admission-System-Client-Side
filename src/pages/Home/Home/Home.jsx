@@ -1,3 +1,4 @@
+import ApplicationSummary from "../ApplicationSuumary/ApplicationSummary";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navabr";
 import Banner from "./Banner/Banner";
@@ -12,6 +13,7 @@ const Home = () => {
        <Banner/>
  </div>
    </div>
+   <ApplicationSummary/>
        <Footer/>
         </div>
     );

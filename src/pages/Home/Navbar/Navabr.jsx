@@ -18,11 +18,11 @@ const Navbar = () => {
                 id="navbarToggler"
                 className={` ${
                   open && "navbarTogglerActive"
-                } absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden`}
+                } absolute right-4 top-1/2 block -translate-y-1/2  ring-primary focus:ring-2 lg:hidden bg-gray-800 bg-none py-2 px-4 rounded-md `}
               >
-                <span className="relative my-[6px] block h-[2px] w-[30px]"></span>
-                <span className="relative my-[6px] block h-[2px] w-[30px]"></span>
-                <span className="relative my-[6px] block h-[2px] w-[30px]"></span>
+                <span className="relative my-[6px] block h-[2px] w-[30px] bg-lime-500"></span>
+                <span className="relative my-[6px] block h-[2px] w-[30px] bg-lime-500"></span>
+                <span className="relative my-[6px] block h-[2px] w-[30px] bg-lime-500"></span>
               </button>
               <nav
                 // :className="!navbarOpen && 'hidden' "
