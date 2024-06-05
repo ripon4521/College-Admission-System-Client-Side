@@ -8,7 +8,7 @@ import { TbMessages } from "react-icons/tb";
 const ApplicationSummary = () => {
     return (
         <div className="py-8 bg-gradient-to-r from-[#F8E5CC] to-[#E3E1EE]">
-            <div className="flex justify-center md:gap-36 flex-col gap-5 ">
+            <div className="flex justify-center md:gap-36 flex-col md:flex-row gap-5 ">
             <div className="flex justify-center items-center ">
                 <span className="text-6xl rounded-md font-bold"><AiOutlineFileDone></AiOutlineFileDone></span>
                 <div>
