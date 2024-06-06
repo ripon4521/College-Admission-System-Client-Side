@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 const Login = () => {
     return (
-        <div className="flex justify-center my-20">
+        <div className="flex justify-center my-20 ">
             <div
-  className="w-80 rounded-lg shadow h-auto p-6 bg-white relative overflow-hidden"
+  className="w-80 rounded-lg shadow h-auto p-6 bg-white relative overflow-hidden "
 >
   <div className="flex flex-col justify-center items-center space-y-2">
     <h2 className="text-2xl font-medium text-slate-700">Login</h2>
@@ -51,11 +51,13 @@ const Login = () => {
     >
       login
     </button>
-    <p className="flex justify-center space-x-1">
-      <span className="text-slate-700"> Have an account? </span>
-      <Link to='/signUp' className="text-blue-500 hover:underline" href="#">Sign Up</Link>
-    </p>
+   
   </form>
+  <p className="flex justify-center space-x-1">
+      <span className="text-slate-700 cursor-pointer"> Have an account? </span>
+      <Link to='/signUp' className="text-blue-500 hover:underline cursor-pointer" >Sign Up</Link>
+    </p>
+   
 </div>
 
         </div>

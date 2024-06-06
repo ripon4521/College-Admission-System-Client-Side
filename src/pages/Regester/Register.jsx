@@ -38,6 +38,8 @@ const Register = () => {
       name: formData.name,
       email: email,
       prolieImg: "",
+      address:'',
+      university : ''
     };
     createUser(email, password)
       .then((res) => {
@@ -64,6 +66,8 @@ const Register = () => {
           name: user.displayName,
           email: user.email,
           prolieImg: user.photoURL,
+          address:'',
+          university : ''
         };
         axiosPublic
           .post("/users", userInfo)
@@ -91,6 +95,8 @@ const Register = () => {
           name: user.displayName,
           email: user.email,
           prolieImg: user.photoURL,
+          address:'',
+          university : ''
         };
         axiosPublic
           .post("/users", userInfo)

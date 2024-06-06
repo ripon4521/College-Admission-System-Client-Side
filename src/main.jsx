@@ -19,6 +19,7 @@ import FeaturedCollege from './pages/Home/FeaturedCollege/FeaturedCollege.jsx';
 import Admission from './pages/Admission/Admission.jsx';
 import MyColllege from './pages/Home/MyCollege/MyColllege.jsx';
 import Private from './pages/Private/Private.jsx';
+import Profile from './pages/Profile/Profile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "college-details/:_id",
-        element: <CollegeDetails />,
+        element: <Private><CollegeDetails /></Private>,
         loader: ({ params }) => fetch(`http://localhost:5000/allCollegeData/${params._id}`).then(res => {
           if (!res.ok) {
             throw new Error('Network response was not ok');
@@ -60,6 +61,9 @@ const router = createBrowserRouter([
       },{
         path:'/myCollege',
         element:<Private> <MyColllege/></Private>
+      },{
+        path:'/profile',
+        element:<Profile/>
       }
     ]
   },
