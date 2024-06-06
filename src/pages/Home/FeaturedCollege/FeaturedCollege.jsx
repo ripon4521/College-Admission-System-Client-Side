@@ -6,11 +6,11 @@ const FeaturedCollege = ({ searchQuery }) => {
   const [collegeDetails, setCollegeDetails] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  console.log(searchQuery )
+//   console.log(searchQuery )
   const location = useLocation();
   const { search } = location;
   const query = new URLSearchParams(search).get("search");
-  console.log(query)
+//   console.log(query)
 
 
   useEffect(() => {

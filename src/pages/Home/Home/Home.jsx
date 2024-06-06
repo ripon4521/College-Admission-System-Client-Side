@@ -7,6 +7,7 @@ import Gallery from "../Gallery/Gallery";
 import HowItWorks from "../HowItWorks/HowItWorks";
 import Navbar from "../Navbar/Navabr";
 import Testimonials from "../Testimonials/Testimonials";
+import TestimonialsSlider from "../TestinmonialsSlider/TestimonialsSlider";
 import Banner from "./Banner/Banner";
 
 
@@ -23,7 +24,7 @@ const Home = ({ searchQuery } ) => {
    <FeaturedCollege searchQuery ={ searchQuery }  />
    <Gallery/>
    <HowItWorks/>
-   <Testimonials/>
+<TestimonialsSlider/>
    <Faq/>
    <FindTopCollege/>
   

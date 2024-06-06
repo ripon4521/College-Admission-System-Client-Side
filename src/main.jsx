@@ -10,6 +10,15 @@ import {
 } from "react-router-dom";
 import CollegeDetails from './pages/Home/FeaturedCollege/CollegeDetails.jsx';
 import MainLayout from './Layout/MainLayout.jsx';
+import Register from './pages/Regester/Register.jsx';
+import AuthProviders from './providers/AuthProviders.jsx';
+import Login from './pages/Login/Login.jsx';
+import ResetPassword from './pages/Login/ResetPassword.jsx';
+import ErrorPage from './pages/Error/ErrorPage.jsx';
+import FeaturedCollege from './pages/Home/FeaturedCollege/FeaturedCollege.jsx';
+import Admission from './pages/Admission/Admission.jsx';
+import MyColllege from './pages/Home/MyCollege/MyColllege.jsx';
+import Private from './pages/Private/Private.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +38,28 @@ const router = createBrowserRouter([
           }
           return res.json();
         })
+      },{
+        path:'/signUp',
+        element:<Register/>
+      },{
+        path:'/login',
+        element:<Login/>
+      },{
+        path:'/forgetPass',
+        element:<ResetPassword/>
+      },{
+        path:'*',
+        element:<ErrorPage/>
+      },
+      {
+        path:'/college',
+        element:<FeaturedCollege/>
+      },{
+        path:'/admission',
+        element:<Private><Admission/></Private>
+      },{
+        path:'/myCollege',
+        element:<Private> <MyColllege/></Private>
       }
     ]
   },
@@ -38,7 +69,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
      <QueryClientProvider client={queryClient}>
 
+     <AuthProviders>
      <RouterProvider router={router} />
+     </AuthProviders>
 
     </QueryClientProvider>
  
