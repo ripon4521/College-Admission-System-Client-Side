@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { axiosPublic } from "../../../Hooks/usePublic";
 
 const FeaturedCollege = ({ searchQuery }) => {
   const [collegeDetails, setCollegeDetails] = useState([]);
@@ -16,7 +17,7 @@ const FeaturedCollege = ({ searchQuery }) => {
   useEffect(() => {
     const fetchCollegeDetails = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/allCollegeData');
+        const response = await axiosPublic.get('/allCollegeData');
         setCollegeDetails(response.data);
         setLoading(false);
       } catch (err) {
